@@ -14,6 +14,7 @@
 ?>
 			<footer id="site-footer" role="contentinfo" class="header-footer-group">
 
+Random footer
 				<div class="section-inner">
 
 					<div class="footer-credits">
