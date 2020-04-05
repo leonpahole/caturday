@@ -1,0 +1,32 @@
+version: "3.7"
+
+services:
+  wordpress:
+    container_name: caturday_site
+    build:
+      context: . # build from Dockerfile
+    ports:
+      - 8080:80 # change this to expose different port
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: username
+      WORDPRESS_DB_PASSWORD: password
+      WORDPRESS_DB_NAME: dbname
+    volumes:
+      - ./wp-content:/var/www/html/wp-content # mounting our code
+    depends_on:
+        - db
+
+  db:
+    container_name: caturday_mysql
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: dbname
+      MYSQL_USER: username
+      MYSQL_PASSWORD: password
+      MYSQL_RANDOM_ROOT_PASSWORD: "1"
+    volumes:
+      - db:/var/lib/mysql
+
+volumes:
+  db:
