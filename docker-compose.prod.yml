@@ -1,0 +1,36 @@
+version: "3.7"
+
+services:
+  wordpress:
+    container_name: caturday_site_prod
+    image: leonpahole/caturday:0.2
+    restart: always
+    ports:
+      # this is only for demo purposes!
+      # In reality, this should not be exposed,
+      # there should be a proxy in front of this container,
+      # which would also hold certificates.
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_NAME: ${DB_NAME}
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - uploads_prod:/var/www/html/wp-content/uploads
+
+  db:
+    container_name: caturday_db_prod
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_RANDOM_ROOT_PASSWORD: "1"
+    volumes:
+      - db_prod:/var/lib/mysql
+
+volumes:
+  uploads_prod:
+  db_prod:

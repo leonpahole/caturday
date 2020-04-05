@@ -38,3 +38,9 @@ fix_permissions_for_local_development.sh
 
 build.env
 build.env.example
+
+.env
+.env.example
+
+deploy.env
+deploy.env.example

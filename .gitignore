@@ -36,3 +36,5 @@ wp-includes
 /xmlrpc.php
 
 build.env
+.env
+deploy.env
