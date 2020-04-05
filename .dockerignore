@@ -1,10 +1,8 @@
 wp-admin
 wp-content/uploads
 
-wp-content/plugins/hello.php
-wp-content/plugins/akismet
-
 wp-content/themes/twenty*
+!wp-content/themes/twentytwenty
 
 wp-includes
 
