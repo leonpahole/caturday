@@ -3,7 +3,7 @@ version: "3.7"
 services:
   wordpress:
     container_name: caturday_site_prod
-    image: leonpahole/caturday:0.4
+    image: leonpahole/caturday:0.5
     restart: always
     ports:
       # this is only for demo purposes!
