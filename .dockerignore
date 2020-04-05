@@ -37,3 +37,4 @@ docker-compose*.yml
 fix_permissions_for_local_development.sh
 
 build.env
+build.env.example
